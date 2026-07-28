@@ -7,11 +7,12 @@ public class Biblioteca {
     private int capacidadMaxima;
     private int cantidadMateriales;
 
-    public Biblioteca(String nombre,String ubicacion,int capacidadMaxima, int cantidadMateriales){
+    public Biblioteca(String nombre,String ubicacion,int capacidadMaxima){
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.materiales = new Material[capacidadMaxima];
-        this.cantidadMateriales = cantidadMateriales;
+        this.cantidadMateriales = 0;
+        this.capacidadMaxima = capacidadMaxima;
     }
     public String getNombre() {
         return nombre;
