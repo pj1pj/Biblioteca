@@ -81,19 +81,19 @@ public class Biblioteca {
 
         for (int i = 0; i < cantidadMateriales; i++) {
 
-           if  (materiales[i].getTitulo().equals(titulo)) {
+            if (materiales[i].getTitulo().equals(titulo)) {
                 indicelimar = i;
                 break;
             }
         }
 
-        if (indicelimar == -1){
+        if (indicelimar == -1) {
             return false;
         }
 
         for (int i = indicelimar; i < cantidadMateriales - 1; i++) {
 
-                materiales[i] = materiales[i + 1];
+            materiales[i] = materiales[i + 1];
         }
 
         materiales[cantidadMateriales - 1] = null;
@@ -101,12 +101,39 @@ public class Biblioteca {
         return true;
 
 
+    }
+
+    public void listarMateriales() {
+        System.out.println("===Materiales litstados===");
+        for (int i = 0; i < cantidadMateriales; i++) {
+            System.out.println(materiales[i]);
         }
 
+    }
 
+    public boolean estaVacia() {
+        return cantidadMateriales == 0;
+    }
 
+    public boolean estaLlena() {
+        return cantidadMateriales == capacidadMaxima;
+    }
 
+    public int contarLibros() {
+        int conteo = 0;
+        for (int i = 0; i < cantidadMateriales; i++) {
+            if (materiales[i] instanceof Libro) {
+                conteo++;
+            }
+        }
+        return conteo;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Soy un material");
+    }
 }
+
 
 
 

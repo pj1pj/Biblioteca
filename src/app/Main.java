@@ -20,33 +20,51 @@ public class Main {
                 "Clean Code",
                 2008,
                 "9780132350884",
+                3,
                 autor1,
-                464
+                464,
+                false
         );
 
         Libro libro2 = new Libro(
                 "Clean Java",
                 20011,
                 "9780132950884",
+                1,
                 autor1,
-                264
+                264,
+                false
         );
 
         Libro libro3 = new Libro(
                 "Clean Python",
                 2019,
                 "9789132350884",
+                2,
                 autor1,
-                317
+                317,
+                false
         );
 
         bibliotecaCentral.agregarMaterial(libro1);
         bibliotecaCentral.agregarMaterial(libro2);
         bibliotecaCentral.agregarMaterial(libro3);
        // System.out.println(bibliotecaCentral.buscarMaterial("Clean Code"));
-       boolean b = bibliotecaCentral.eliminarMaterial("Clean Java");
-       System.out.println(b);
+       //boolean b = bibliotecaCentral.eliminarMaterial("Clean Java");
+       //.out.println(b);
+        //int b = bibliotecaCentral.contarLibros();
+        //System.out.println(b);
+
+
+        libro1.prestar();
+        libro1.prestar();
 
     }
-} // funcion elimar material
+
+
+
+
+
+
+}
 

@@ -3,11 +3,13 @@ package modelos;
 public abstract class Material {
     private String titulo;
     private int fechaPublicacion;
+    private int id;
 
 
-    public Material(String titulo, int fechaPublicacion) {
+    public Material(String titulo, int fechaPublicacion, int id) {
         setTitulo(titulo);
         this.fechaPublicacion = fechaPublicacion;
+        this.id = id;
 
     }
 
@@ -37,6 +39,10 @@ public abstract class Material {
                 "Titulo: " + this.titulo +"\n"+
                 "Fecha Publicacion: " + this.fechaPublicacion + "\n";
 
+    }
+
+    public int getId() {
+        return id;
     }
 }
 

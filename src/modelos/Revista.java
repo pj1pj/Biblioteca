@@ -4,8 +4,8 @@ public class Revista extends Material{
     private int edicion;
     private String periodicidad;
 
-    public Revista(String titulo, int fechaPublicacion, int edicion, String periodicidad){
-        super(titulo,fechaPublicacion);
+    public Revista(String titulo, int fechaPublicacion, int id, int edicion, String periodicidad){
+        super(titulo,fechaPublicacion, id);
         this.edicion = edicion;
         this.periodicidad = periodicidad;
 
