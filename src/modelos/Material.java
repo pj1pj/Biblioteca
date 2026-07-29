@@ -33,7 +33,7 @@ public abstract class Material {
 
 @Override
     public String toString(){
-        return "Datos Material \n" +
+        return "===Datos Material===\n" +
                 "Titulo: " + this.titulo +"\n"+
                 "Fecha Publicacion: " + this.fechaPublicacion + "\n";
 
