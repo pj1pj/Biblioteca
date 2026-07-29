@@ -28,7 +28,7 @@ public class Libro extends Material {
 @Override
     public String toString(){
     return super.toString() +
-            this.autor.getNombre() + "\n " +
+            "Autor: " + this.autor.getNombre() + "\n" +
             "ISBN: " + this.isbn + "\n" +
             "Número de Páginas: " + this.numeroPaginas + "\n";
 
