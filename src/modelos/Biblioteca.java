@@ -61,13 +61,15 @@ public class Biblioteca {
     }
 
     public Material buscarMaterial(String titulo){
-        for (Material mat : materiales){
-            if (materiales != null && mat.getTitulo().equals(titulo)){
-                return mat;
+        for (int i = 0; i < cantidadMateriales; i++) {
 
+            Material material = materiales[i];
+
+            if (material.getTitulo().equals(titulo)) {
+                return material;
             }
         }
-        return null;
 
+        return null;
     }
 }
