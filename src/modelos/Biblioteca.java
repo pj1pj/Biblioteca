@@ -60,7 +60,7 @@ public class Biblioteca {
 
     }
 
-    public Material buscarMaterial(String titulo){
+    public Material buscarMaterial(String titulo) {
         for (int i = 0; i < cantidadMateriales; i++) {
 
             Material material = materiales[i];
@@ -71,5 +71,49 @@ public class Biblioteca {
         }
 
         return null;
+
+
     }
+
+    public boolean eliminarMaterial(String titulo) {
+
+        int indicelimar = -1;
+
+        for (int i = 0; i < cantidadMateriales; i++) {
+
+           if  (materiales[i].getTitulo().equals(titulo)) {
+                indicelimar = i;
+                break;
+            }
+        }
+
+        if (indicelimar == -1){
+            return false;
+        }
+
+        for (int i = indicelimar; i < cantidadMateriales - 1; i++) {
+
+                materiales[i] = materiales[i + 1];
+        }
+
+        materiales[cantidadMateriales - 1] = null;
+        cantidadMateriales--;
+        return true;
+
+
+        }
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
