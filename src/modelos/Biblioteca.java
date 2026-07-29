@@ -7,13 +7,14 @@ public class Biblioteca {
     private int capacidadMaxima;
     private int cantidadMateriales;
 
-    public Biblioteca(String nombre,String ubicacion,int capacidadMaxima){
+    public Biblioteca(String nombre, String ubicacion, int capacidadMaxima) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.materiales = new Material[capacidadMaxima];
         this.cantidadMateriales = 0;
         this.capacidadMaxima = capacidadMaxima;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -35,12 +36,38 @@ public class Biblioteca {
         return materiales;
     }
 
-@Override
-    public String toString(){
-        return"Nombre: " + this.nombre + "\n" +
-            "Ubicación: " + this.ubicacion + "\n" +
-            "Capacidad Máxima: " + this.capacidadMaxima + "\n" +
-            "Cantidad de Materiales: " + this.cantidadMateriales + "\n";
-}
-}
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + "\n" +
+                "Ubicación: " + this.ubicacion + "\n" +
+                "Capacidad Máxima: " + this.capacidadMaxima + "\n" +
+                "Cantidad de Materiales: " + this.cantidadMateriales + "\n";
+    }
 
+    public boolean agregarMaterial(Material material) {
+
+        if (material == null) {
+            return false;
+        }
+
+        if (cantidadMateriales >= capacidadMaxima) {
+            return false;
+        }
+
+        materiales[cantidadMateriales] = material;
+        cantidadMateriales++;
+        return true;
+
+    }
+
+    public Material buscarMaterial(String titulo){
+        for (Material mat : materiales){
+            if (materiales != null && mat.getTitulo().equals(titulo)){
+                return mat;
+
+            }
+        }
+        return null;
+
+    }
+}
