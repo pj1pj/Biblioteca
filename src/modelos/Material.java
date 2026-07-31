@@ -24,16 +24,22 @@ public abstract class Material {
         return titulo;
     }
 
+
     public void setTitulo(String titulo) {
         if (titulo == null) {
-            System.out.println("Error al guardar el titulo");
+
         } else {
             this.titulo = titulo;
 
         }
     }
 
-@Override
+    public int getId() {
+        return id;
+    }
+
+
+    @Override
     public String toString(){
         return "===Datos Material===\n" +
                 "Titulo: " + this.titulo +"\n"+
@@ -41,11 +47,6 @@ public abstract class Material {
 
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void getPretar() {
-    }
 }
 
