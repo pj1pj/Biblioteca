@@ -44,5 +44,8 @@ public abstract class Material {
     public int getId() {
         return id;
     }
+
+    public void getPretar() {
+    }
 }
 

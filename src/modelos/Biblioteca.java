@@ -71,8 +71,6 @@ public class Biblioteca {
         }
 
         return null;
-
-
     }
 
     public boolean eliminarMaterial(String titulo) {
@@ -129,10 +127,49 @@ public class Biblioteca {
         return conteo;
     }
 
-    public void mostrarInfo() {
-        System.out.println("Soy un material");
+   public boolean solicitarPrestamo(String titulo){
+
+       Material encontrado = buscarMaterial(titulo);
+        if(encontrado == null){
+            return false;
+        }
+
+        if(encontrado instanceof Libro){
+            Libro libro = (Libro) encontrado;
+            if (libro.estaPrestado()){
+
+                return false;
+            } else {
+                libro.prestar();
+                return true;
+            }
+        } else{ return false;}
+
+   }
+
+    public boolean devolverPrestamo(String titulo){
+
+        Material encontrado = buscarMaterial(titulo);
+        if(encontrado == null){
+            return false;
+        }
+
+        if(encontrado instanceof Libro){
+            Libro libro = (Libro) encontrado;
+            if (libro.estaPrestado()){
+                libro.devolver();
+                return true;
+            } else {
+
+                return false;
+            }
+        } else{ return false;}
+
     }
-}
+    }
+
+
+
 
 
 
