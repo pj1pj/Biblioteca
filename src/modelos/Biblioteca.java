@@ -1,6 +1,6 @@
 package modelos;
 
-import modelos.excepciones.LibroNoEncontradoException;
+import modelos.excepciones.*;
 
 public class Biblioteca {
     private String nombre;
@@ -46,10 +46,10 @@ public class Biblioteca {
                 "Cantidad de Materiales: " + this.cantidadMateriales + "\n";
     }
 
-    public boolean agregarMaterial(Material material) {
+    public boolean agregarMaterial(Material material) throws MaterialInvalidoException {
 
         if (material == null) {
-            return false;
+            throw new MaterialInvalidoException("material invalido");
         }
 
         if (cantidadMateriales >= capacidadMaxima) {
@@ -88,7 +88,7 @@ public class Biblioteca {
         }
 
         if (indicelimar == -1) {
-            return false;
+            throw new MaterialNoEncontradoException("material no encontrado");
         }
 
         for (int i = indicelimar; i < cantidadMateriales - 1; i++) {
@@ -129,7 +129,7 @@ public class Biblioteca {
         return conteo;
     }
 
-   public boolean solicitarPrestamo(String titulo) throws LibroNoEncontradoException {
+   public boolean solicitarPrestamo(String titulo) throws LibroNoEncontradoException, LibroYaPrestadoException, MaterialNoPrestableException {
 
        Material encontrado = buscarMaterial(titulo);
         if(encontrado == null){
@@ -140,20 +140,21 @@ public class Biblioteca {
             Libro libro = (Libro) encontrado;
             if (libro.estaPrestado()){
 
-                return false;
+                throw new LibroYaPrestadoException("libro ya prestado");
             } else {
                 libro.prestar();
                 return true;
             }
-        } else{ return false;}
+        } else{ throw new MaterialNoPrestableException("material no prestable");
+        }
 
    }
 
-    public boolean devolverPrestamo(String titulo){
+    public boolean devolverPrestamo(String titulo) throws LibroNoEncontradoException, MaterialNoPrestableException, LibroNoPrestadoException {
 
         Material encontrado = buscarMaterial(titulo);
         if(encontrado == null){
-            return false;
+            throw new LibroNoEncontradoException("libro no encontrado");
         }
 
         if(encontrado instanceof Libro){
@@ -163,9 +164,9 @@ public class Biblioteca {
                 return true;
             } else {
 
-                return false;
+                throw new LibroNoPrestadoException("libo no prestado");
             }
-        } else{ return false;}
+        } else{ throw new MaterialNoPrestableException("material no prestable");}
 
     }
     }
