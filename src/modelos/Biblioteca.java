@@ -1,5 +1,7 @@
 package modelos;
 
+import modelos.excepciones.LibroNoEncontradoException;
+
 public class Biblioteca {
     private String nombre;
     private String ubicacion;
@@ -127,11 +129,11 @@ public class Biblioteca {
         return conteo;
     }
 
-   public boolean solicitarPrestamo(String titulo){
+   public boolean solicitarPrestamo(String titulo) throws LibroNoEncontradoException {
 
        Material encontrado = buscarMaterial(titulo);
         if(encontrado == null){
-            return false;
+            throw new LibroNoEncontradoException("no encontrado");
         }
 
         if(encontrado instanceof Libro){
