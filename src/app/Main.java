@@ -70,6 +70,38 @@ public class Main {
 
 
 
+
+
+
+        //bibliotecaCentral.agregarMaterial(libro2);
+        //bibliotecaCentral.agregarMaterial(libro3);
+        // System.out.println(bibliotecaCentral.buscarMaterial("Clean Code"));
+        //boolean b = bibliotecaCentral.eliminarMaterial("Clean Java");
+        //.out.println(b);
+        //comnetario
+        try {
+            bibliotecaCentral.agregarMaterial(libro1);
+        } catch (MaterialInvalidoException e){
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            bibliotecaCentral.solicitarPrestamo("Clean");
+        } catch (LibroNoEncontradoException e){
+            System.out.println(e.getMessage());
+        } catch (LibroYaPrestadoException e){
+            System.out.println(e.getMessage());
+        } catch (MaterialNoPrestableException e) {
+            System.out.println(e.getMessage());
+
+        }
+
+
+
+
+
+
+
         //bibliotecaCentral.agregarMaterial(libro2);
         //bibliotecaCentral.agregarMaterial(libro3);
         // System.out.println(bibliotecaCentral.buscarMaterial("Clean Code"));
@@ -79,8 +111,8 @@ public class Main {
         //System.out.println(b);
 
 
-//        libro1.prestar();
-//        libro1.prestar();
+        libro1.prestar();
+        libro1.prestar();
 
     }
 
