@@ -46,19 +46,19 @@ public class Biblioteca {
                 "Cantidad de Materiales: " + this.cantidadMateriales + "\n";
     }
 
-    public boolean agregarMaterial(Material material) throws MaterialInvalidoException {
+    public void agregarMaterial(Material material) throws MaterialInvalidoException {
 
         if (material == null) {
             throw new MaterialInvalidoException("material invalido");
         }
 
         if (cantidadMateriales >= capacidadMaxima) {
-            return false;
+
         }
 
         materiales[cantidadMateriales] = material;
         cantidadMateriales++;
-        return true;
+
 
     }
 
@@ -129,7 +129,7 @@ public class Biblioteca {
         return conteo;
     }
 
-   public boolean solicitarPrestamo(String titulo) throws LibroNoEncontradoException, LibroYaPrestadoException, MaterialNoPrestableException {
+   public void solicitarPrestamo(String titulo) throws LibroNoEncontradoException, LibroYaPrestadoException, MaterialNoPrestableException {
 
        Material encontrado = buscarMaterial(titulo);
         if(encontrado == null){
@@ -143,7 +143,7 @@ public class Biblioteca {
                 throw new LibroYaPrestadoException("libro ya prestado");
             } else {
                 libro.prestar();
-                return true;
+
             }
         } else{ throw new MaterialNoPrestableException("material no prestable");
         }
